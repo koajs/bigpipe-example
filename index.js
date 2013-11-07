@@ -12,7 +12,8 @@ app.use(require('koa-static')(path.join(__dirname, 'build')))
 if (!module.parent) {
   var port = process.env.PORT || 3456
   app.listen(port, function (err) {
-    if (err) throw err;
+    if (err)
+      throw err
 
     console.log('BigPipe example listening on port ' + port)
   })
