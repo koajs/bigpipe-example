@@ -11,11 +11,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/koajs/bigpipe-example.git"
+    "url": "https://github.com/jonathanong/bigpipe-example.git"
   },
   "bugs": {
     "mail": "me@jongleberry.com",
-    "url": "https://github.com/koajs/bigpipe-example/issues"
+    "url": "https://github.com/jonathanong/bigpipe-example/issues"
   },
   "dependencies": {
     "co": "2",
