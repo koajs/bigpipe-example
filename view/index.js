@@ -15,6 +15,7 @@ View.extend = function () {
   }
 
   util.inherits(View, this)
+
   Object.keys(this).forEach(function (key) {
     View[key] = this[key]
   }, this)
@@ -44,6 +45,7 @@ View.prototype.initialize = function (context) {
 }
 
 var head = fs.readFileSync(path.join(__dirname, 'head.html'), 'utf8')
+
 View.prototype.head = function () {
   this.push('<!DOCTYPE html><html>')
   this.push(head.replace('{{title}}', this.context.title))

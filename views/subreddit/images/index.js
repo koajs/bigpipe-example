@@ -9,10 +9,7 @@ var pagelet = {
 
 exports.grid = function* () {
   if (this.context.strategy === 'bigpipe') {
-    this.push('<div id="grid">'
-      + pagelet.spinner
-      + '</div>'
-    )
+    this.push('<div id="grid">' + pagelet.spinner + '</div>')
 
     this.pagelets.push(function* () {
       var images = yield this.images

@@ -36,6 +36,7 @@ View.prototype.body = function* () {
 }
 
 // Execute all queries in parallel
+// NEED ES6 DESTRUCTURING
 View.prototype.query = function* () {
   var out = yield [
     this.images,

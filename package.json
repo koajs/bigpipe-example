@@ -1,6 +1,6 @@
 {
-  "name": "koa-bigpipe-example",
-  "description": "BigPipe using koa",
+  "name": "bigpipe-example",
+  "description": "BigPipe using koa and component",
   "version": "0.0.1",
   "author": {
     "name": "Jonathan Ong",

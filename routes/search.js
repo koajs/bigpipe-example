@@ -14,7 +14,7 @@ app.use(function (next) { return function* () {
 }})
 
 function search(term, done) {
-  var uri = 'http://www.reddit.com/subreddits/search.json?limit=3&q=' + term
+  var uri = 'http://www.reddit.com/subreddits/search.json?limit=10&q=' + term
 
   var req = http.get(uri, function (res) {
     if (res.statusCode !== 200)

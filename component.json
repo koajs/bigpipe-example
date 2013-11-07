@@ -1,5 +1,5 @@
 {
-  "name": "koa-bigpipe-example",
+  "name": "bigpipe-example",
   "version": "0.0.1",
   "local": ["boot"],
   "paths": ["client"]
