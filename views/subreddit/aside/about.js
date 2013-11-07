@@ -6,7 +6,7 @@ exports.asideAbout = function* () {
     this.pagelets.push(function* () {
       var about = yield this.about
       if (!about)
-        return this.arrive('#' + id, '404')
+        return this.remove('#' + id)
 
       this.arrive('#' + id, this._asideAbout(about))
     })
@@ -18,7 +18,7 @@ exports.asideAbout = function* () {
     : yield this.about
 
   if (!about)
-    return this.push('<aside id="' + id + '">404</aside>')
+    return
 
   this.push('<aside id="' + id + '">' + this._asideAbout(about) + '</aside>')
 }

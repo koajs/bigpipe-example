@@ -13,10 +13,8 @@ exports.grid = function* () {
 
     this.pagelets.push(function* () {
       var images = yield this.images
-      if (!images)
-        return this.arrive('#grid', '404')
-      if (!images.length)
-        return this.arrive('#grid', 'empty')
+      if (!images || !images.length)
+        return this.arrive('#grid', this.alert('info', '<p>No images to view.</p>'))
 
       var html = '<div id="grid-inner">'
         + images.map(this.gridElement, this).join('')
@@ -30,10 +28,11 @@ exports.grid = function* () {
     ? this.locals.images
     : yield this.images
 
-  if (!images)
-    return this.push('<div id="grid">404</div>')
-  if (!images.length)
-    return this.push('<div id="grid">empty</div>')
+  if (!images || !images.length)
+    return this.push('<div id="grid">'
+      + this.alert('info', '<p>No images to view.</p>')
+      + '</div>'
+    )
 
   var html = images.map(this.gridElement, this).join('')
   this.push('<div id="grid"><div id="grid-inner">' + html + '</div>' + pagelet.css + '</div>')

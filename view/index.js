@@ -77,4 +77,17 @@ View.prototype.arrive = function (selector, html, js) {
   )
 }
 
+View.prototype.remove = function (selector) {
+  this.push('<script>BigPipe.remove('
+    + JSON.stringify(selector)
+    + ');</script>'
+  )
+}
+
+View.prototype.alert = function (type, html) {
+  return '<div class="alert alert-' + type + '">'
+    + html
+    + '</div>'
+}
+
 View.prototype._read = function noop() {}

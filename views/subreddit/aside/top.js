@@ -5,10 +5,8 @@ exports.asideTop = function* (time) {
     this.push('<aside id="' + id + '" class="placeholder"></aside>')
     this.pagelets.push(function* () {
       var posts = yield this.top(time)
-      if (!posts)
-        return this.arrive('#' + id, '404')
-      if (!posts.length)
-        return this.arrive('#' + id, 'empty')
+      if (!posts || !posts.length)
+        return this.remove('#' + id)
 
       var html = this._asideTop(time, posts)
       this.arrive('#' + id, html)
@@ -20,10 +18,8 @@ exports.asideTop = function* (time) {
     ? this.locals[time]
     : yield this.top(time)
 
-  if (!posts)
-    return this.push('<aside id="' + id + '">404</aside>')
-  if (!posts.length)
-    return this.push('<aside id="' + id + '">empty</aside>')
+  if (!posts || !posts.length)
+    return
 
   var html = this._asideTop(time, posts)
   this.push('<aside id="' + id + '">' + html + '</aside>')

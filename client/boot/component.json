@@ -6,6 +6,7 @@
   "local": [
     "reset",
     "layout",
+    "alert",
     "aside",
     "big-pipe",
     "spinner",
