@@ -6,5 +6,6 @@ client index.js:
 	@mv build/build.css build/example.css
 	@echo "\n\nrequire('boot');" \
 		| cat build/build.js - > build/example.js
+	@${BIN}autoprefixer build/example.css
 
 .PHONY: client index.js

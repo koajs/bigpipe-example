@@ -1,76 +1,29 @@
-var http = require('http')
+var get = require('../../lib').get
 
-exports.images = function (done) {
-  var uri = 'http://imgur.com/r/' + this.context.subreddit + '.json'
+exports.images = function* () {
+  var json = yield get('http://imgur.com/r/'
+    + this.context.subreddit
+    + '.json'
+  )
 
-  var req = http.get(uri, function (res) {
-    if (res.statusCode !== 200)
-      return done(null, false)
-
-    var body = ''
-    res.setEncoding('utf8')
-    res.on('data', function (chunk) {
-      body += chunk
-    })
-    res.once('end', function () {
-      done(null, JSON.parse(body).data)
-    })
-  })
-
-  if (done)
-    req.once('error', done)
-
-  return function (fn) {
-    req.once('error', done = fn)
-  }
+  return json && json.data
 }
 
-exports.top = function (time, done) {
-  var uri = 'http://www.reddit.com/r/' + this.context.subreddit + '/top.json?sort=top&t=' + time + '&limit=5'
+exports.top = function* (time) {
+  var json = yield get('http://www.reddit.com/r/'
+    + this.context.subreddit
+    + '/top.json?sort=top&t='
+    + time + '&limit=5'
+  )
 
-  var req = http.get(uri, function (res) {
-    if (res.statusCode !== 200)
-      return done(null, false)
-
-    var body = ''
-    res.setEncoding('utf8')
-    res.on('data', function (chunk) {
-      body += chunk
-    })
-    res.once('end', function () {
-      done(null, JSON.parse(body).data.children)
-    })
-  })
-
-  if (done)
-    req.once('error', done)
-
-  return function (fn) {
-    req.once('error', done = fn)
-  }
+  return json && json.data.children
 }
 
-exports.about = function (done) {
-  var uri = 'http://www.reddit.com/r/' + this.context.subreddit + '/about.json'
+exports.about = function* () {
+  var json = yield get('http://www.reddit.com/r/'
+    + this.context.subreddit
+    + '/about.json'
+  )
 
-  var req = http.get(uri, function (res) {
-    if (res.statusCode !== 200)
-      return done(null, false)
-
-    var body = ''
-    res.setEncoding('utf8')
-    res.on('data', function (chunk) {
-      body += chunk
-    })
-    res.once('end', function () {
-      done(null, JSON.parse(body).data)
-    })
-  })
-
-  if (done)
-    req.once('error', done)
-
-  return function (fn) {
-    req.once('error', done = fn)
-  }
+  return json && json.data
 }

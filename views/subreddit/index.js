@@ -1,6 +1,8 @@
 var View = module.exports = require('../../view').extend()
 
 View.mixin(require('./aside'))
+View.mixin(require('./aside/about'))
+View.mixin(require('./aside/top'))
 View.mixin(require('./images'))
 View.mixin(require('./query'))
 

@@ -1,6 +1,5 @@
-var http = require('http')
-
 var app = require('../app')
+var get = require('../lib').get
 
 app.use(function (next) { return function* () {
   if (this.path !== '/search')
@@ -13,29 +12,10 @@ app.use(function (next) { return function* () {
   this.body = yield search(term)
 }})
 
-function search(term, done) {
-  var uri = 'http://www.reddit.com/subreddits/search.json?limit=10&q=' + term
+function* search(term) {
+  var json = yield get('http://www.reddit.com/subreddits/search.json?limit=10&q=' + term)
 
-  var req = http.get(uri, function (res) {
-    if (res.statusCode !== 200)
-      return done(null, false)
-
-    var body = ''
-    res.setEncoding('utf8')
-    res.on('data', function (chunk) {
-      body += chunk
-    })
-    res.once('end', function () {
-      done(null, JSON.parse(body).data.children.map(getData))
-    })
-  })
-
-  if (done)
-    req.once('error', done)
-
-  return function (fn) {
-    req.once('error', done = fn)
-  }
+  return json && json.data.children.map(getData)
 }
 
 function getData(x) {

@@ -1,7 +1,7 @@
 var select = require('select')
 var request = require('superagent')
 
-var search = window.search = select().label('Search Subreddits')
+var search = select().label('Search Subreddits')
 
 search
 .on('search', function (term) {

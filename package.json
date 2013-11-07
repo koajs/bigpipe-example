@@ -25,6 +25,7 @@
     "koa-logger": "koajs/logger",
     "koa-compress": "koajs/compress",
     "merge-descriptors": "*",
+    "autoprefixer": "*",
     "component": "*",
     "nodemon": "*"
   },
