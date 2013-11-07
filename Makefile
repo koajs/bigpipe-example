@@ -7,4 +7,14 @@ client index.js:
 	@echo "\n\nrequire('boot');" \
 		| cat build/build.js - > build/example.js
 
-.PHONY: client index.js
+watch:
+	@${BIN}nodemon \
+		--watch client \
+		--ext css,js,json,html \
+		--exec "make" \
+		index.js
+
+start serve:
+	@${BIN}nodemon --harmony .
+
+.PHONY: client index.js watch start serve
