@@ -29,7 +29,7 @@ exports.asideAbout = function* () {
   if (!about)
     return this.push('<aside id="' + id + '">404</aside>')
 
-  this.push('<aside id="' + id + '>' + this._asideAbout(about) + '</aside>')
+  this.push('<aside id="' + id + '">' + this._asideAbout(about) + '</aside>')
 }
 
 exports.asideTop = function* (time) {

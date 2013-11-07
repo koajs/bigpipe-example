@@ -26,7 +26,7 @@ function search(term, done) {
       body += chunk
     })
     res.once('end', function () {
-      done(null, JSON.parse(body).data.children)
+      done(null, JSON.parse(body).data.children.map(getData))
     })
   })
 
@@ -36,4 +36,8 @@ function search(term, done) {
   return function (fn) {
     req.once('error', done = fn)
   }
+}
+
+function getData(x) {
+  return x.data
 }

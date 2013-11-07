@@ -16,6 +16,3 @@ function reload() {
   pack.height = Math.round(window.innerHeight / Math.PI)
   pack.reload()
 }
-
-if (window.spinner)
-  spinner.remove()

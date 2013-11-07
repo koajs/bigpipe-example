@@ -1,0 +1,13 @@
+{
+  "name": "search",
+  "dependencies": {
+    "yields/select": "*",
+    "visionmedia/superagent": "*"
+  },
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+    "index.css"
+  ]
+}

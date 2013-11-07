@@ -1,0 +1,36 @@
+#search {
+  height: 40px;
+  border-bottom: 1px solid #ddd;
+}
+
+.select {
+  width: 100%;
+  height: 100%;
+}
+
+.select-box {
+  height: 100%;
+}
+
+.select-input {
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  border: 0;
+  font-size: 28px;
+  box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.075);
+}
+
+.select-dropdown {
+  background: #fff;
+}
+
+.select-option {
+  padding: 5px 10px;
+  font-size: 18px;
+}
+
+.highlighted {
+  background: #08c;
+  color: #fff;
+}

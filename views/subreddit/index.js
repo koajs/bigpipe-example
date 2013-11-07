@@ -16,6 +16,7 @@ View.prototype.render = function* () {
 }
 
 View.prototype.body = function* () {
+  this.push('<div id="search"></div>')
   this.push('<div id="container">')
 
   yield this.grid
