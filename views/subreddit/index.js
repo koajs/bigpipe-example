@@ -9,6 +9,9 @@ View.mixin(require('./query'))
 View.prototype.render = function* () {
   this.head()
 
+  // We execute the queries in parallel _after_
+  // flushing the <head> to the client so the client
+  // can at least download the <style> while s/he waits.
   if (this.context.strategy === 'parallel')
     yield this.query
 
@@ -38,8 +41,10 @@ View.prototype.body = function* () {
   this.push('</div>')
 }
 
-// Execute all queries in parallel
-// NEED ES6 DESTRUCTURING
+// Execute all queries in parallel.
+// This is inconvenient because it requires you to
+// know what queries to execute _before_ you render the template.
+// Future: this.locals = yield {}
 View.prototype.query = function* () {
   var out = yield [
     this.images,

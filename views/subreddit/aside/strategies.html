@@ -29,6 +29,7 @@
 <script id="strategies-js">(function () {
   var form = document.querySelector('#strategies form');
 
+  // Change the URL on radio button change.
   form.addEventListener('change', function (e) {
     var strategy = e.target.value
     if (strategy === 'sequential')
@@ -37,6 +38,9 @@
       location.search = '?' + strategy
   })
 
+  // Check the currently selected strategy.
+  // Found this easier client-side since there isn't much
+  // server-side template logic in this app.
   var strategy = /^\?(parallel|bigpipe)/.exec(location.search)
   strategy = strategy ? strategy[1] : 'sequential'
 
@@ -44,6 +48,7 @@
   for (var i = 0; i < 3; i++)
     inputs[i].checked = inputs[i].value === strategy
 
+  // Remove this script tag as I find embedded script tags annoying.
   var js = document.querySelector('#strategies-js')
   js.parentNode.removeChild(js)
 })();</script>

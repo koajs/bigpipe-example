@@ -23,6 +23,8 @@ exports.asideAbout = function* () {
   this.push('<aside id="' + id + '">' + this._asideAbout(about) + '</aside>')
 }
 
+// I really wanted to add more info,
+// but I gave up on the reddit API.
 exports._asideAbout = function (data) {
   var uri = 'http://www.reddit.com/r/' + this.context.subreddit
 
