@@ -1,0 +1,30 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#container {
+  display: flex;
+  flex-flow: row;
+  height: auto;
+  min-height: 100%;
+}
+
+#grid {
+  position: relative;
+  width: calc(90% - 220px);
+  padding: 5px;
+  box-shadow: 2px 0px 10px rgba(0,0,0,.15);
+  height: auto;
+  min-height: 100%;
+}
+
+#grid-inner {
+  visibility: hidden;
+}
+
+#sidebar {
+  width: calc(220px + 10%);
+}

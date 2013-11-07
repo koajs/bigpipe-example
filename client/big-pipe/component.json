@@ -1,0 +1,13 @@
+{
+  "name": "big-pipe",
+  "dependencies": {
+    "component/raf": "*",
+    "component/classes": "*"
+  },
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+    "index.css"
+  ]
+}

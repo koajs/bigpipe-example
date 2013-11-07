@@ -1,0 +1,11 @@
+.hgp a {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.hgp img {
+  max-width: none;
+  min-width: 100%;
+  height: 100%;
+  width: 100%;
+}

@@ -1,0 +1,9 @@
+{
+  "name": "subreddit",
+  "dependencies": {
+    "jonathanong/horizontal-grid-packing": "*"
+  },
+  "scripts": [
+    "index.js"
+  ]
+}

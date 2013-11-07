@@ -1,0 +1,4 @@
+.placeholder,
+.placeholder ~ aside {
+  display: none;
+}

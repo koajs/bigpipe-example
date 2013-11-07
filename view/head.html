@@ -1,0 +1,11 @@
+<head>
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/example.css">
+  <script>
+    var deferred = [];
+    function defer(fn) {
+      if (deferred !== null) deferred.push(fn);
+      else fn();
+    }
+  </script>
+</head>

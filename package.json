@@ -1,0 +1,38 @@
+{
+  "name": "koa-bigpipe-example",
+  "description": "BigPipe using koa",
+  "version": "0.0.1",
+  "author": {
+    "name": "Jonathan Ong",
+    "email": "me@jongleberry.com",
+    "url": "http://jongleberry.com",
+    "twitter": "https://twitter.com/jongleberry"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/koajs/bigpipe-example.git"
+  },
+  "bugs": {
+    "mail": "me@jongleberry.com",
+    "url": "https://github.com/koajs/bigpipe-example/issues"
+  },
+  "dependencies": {
+    "co": "2",
+    "koa": "koajs/koa",
+    "koa-static": "koajs/static",
+    "koa-favicon": "koajs/favicon",
+    "koa-logger": "koajs/logger",
+    "koa-compress": "koajs/compress",
+    "merge-descriptors": "*",
+    "component": "*",
+    "nodemon": "*"
+  },
+  "scripts": {
+    "postinstall": "make",
+    "start": "nodemon --harmony ."
+  },
+  "engines": {
+    "node": ">= 0.11.3"
+  }
+}

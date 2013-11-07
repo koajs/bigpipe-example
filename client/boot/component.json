@@ -1,0 +1,14 @@
+{
+  "name": "boot",
+  "scripts": [
+    "index.js"
+  ],
+  "local": [
+    "reset",
+    "layout",
+    "aside",
+    "big-pipe",
+    "spinner",
+    "subreddit"
+  ]
+}
