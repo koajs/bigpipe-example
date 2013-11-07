@@ -26,6 +26,7 @@ View.prototype.body = function* () {
   this.push('<div id="sidebar">')
 
   yield this.aside('about')
+  yield this.aside('strategies')
   yield this.aside('top', 'day')
   yield this.aside('top', 'week')
   yield this.aside('top', 'month')

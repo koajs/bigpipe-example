@@ -65,7 +65,7 @@ View.prototype.tail = function* () {
 
 // Defer executing a script until after `build.js` is executed.
 View.prototype.defer = function (script) {
-  this.push('<script>defer(new Function(' + JSON.stringify(script) + '));</script>')
+  this.push('<script>defer(function(){' + script + '});</script>')
 }
 
 View.prototype.arrive = function (selector, html, js) {

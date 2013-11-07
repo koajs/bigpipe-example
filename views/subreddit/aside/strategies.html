@@ -1,0 +1,45 @@
+<aside id="strategies">
+  <h3>Strategy</h3>
+  <form>
+    <label>
+      <input name="strategy" type="radio" value="sequential">
+      <span>Sequential</span>
+    </label>
+    <label>
+      <input name="strategy" type="radio" value="parallel">
+      <span>Parallel</span>
+    </label>
+    <label>
+      <input name="strategy" type="radio" value="bigpipe">
+      <span>BigPipe</span>
+    </label>
+  </form>
+  <style scoped>
+    #strategies form {
+      padding: 20px;
+    }
+
+    #strategies label {
+      display: block;
+      padding: 5px 0;
+      cursor: pointer;
+    }
+  </style>
+</aside>
+<script>(function () {
+  var form = document.querySelector('#strategies form');
+
+  form.addEventListener('change', function (e) {
+    location.search = '?' + e.target.value
+  })
+
+  var strategy = /^\?(parallel|bigpipe)/.exec(location.search)
+  strategy = strategy
+    ? strategy[1]
+    : 'sequential'
+
+  var inputs = document.querySelectorAll('#strategies input')
+  for (var i = 0; i < 3; i++)
+    inputs[i].checked = inputs[i].value === strategy
+
+})();</script>
