@@ -7,7 +7,6 @@ body {
 
 #container {
   display: flex;
-  flex-flow: row;
   height: auto;
   min-height: calc(100% - 41px);
 }
