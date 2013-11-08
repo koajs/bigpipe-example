@@ -1,7 +1,7 @@
 var app = require('../app')
 var View = require('../views').subreddit
 
-app.use(function (next) { return function* () {
+app.use(function* (next) {
   var match = /^\/(\w+)$/.exec(this.path)
   if (!match)
     return yield next
@@ -13,4 +13,4 @@ app.use(function (next) { return function* () {
     : 'sequential'
 
   new View(this)
-}})
+})
