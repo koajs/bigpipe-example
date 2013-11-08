@@ -35,11 +35,16 @@ npm start
 
 This example implements 3 strategies.
 The strategies are listed from slowest to fastest and worst to best.
+This app is designed to be able to switch between any of these 3 modes with minimal code.
+
+These strategies are all implemented as streams.
+If you want to implement caching, you would want to buffer the result and process it before sending it to the client.
+Fortunately, this is easy with koa.
 
 ### Sequential
 
-All asynchronous functions are blocking and are embedded within the template.
-This is the easiest way to build a webpage and is more inline with traditional languages like PHP and Python.
+All asynchronous functions are blocking and are called within the template.
+This is the easiest way to build a webpage and is similar traditional web languages like PHP, Ruby, and Python.
 This is actually difficult to do in vanilla node.js,
 but very easy with koa.
 
@@ -47,6 +52,7 @@ but very easy with koa.
 
 All asynchronous functions are executed before the rendering of the template.
 This is similar to traditional Express apps where rendering occurs at `res.render()` (assuming the developer executes the functions in parallel).
+This is the ideal method if you intend to cache the page.
 
 ### BigPipe
 
@@ -55,7 +61,7 @@ Each asynchronous function, also called a pagelet, is rendered and pushed indepe
 Each pagelet is generally self-contained, meaning it has its own HTML, JS, CSS.
 
 The major downside to BigPipe is that it requires Javascript on the client and HTTP caching is pretty much impossible.
-BigPipe should be used only for dynamic content (ie not static pages or pages only visitors see).
+BigPipe should be used only for dynamic content.
 
 ## Koa
 
@@ -66,7 +72,7 @@ Look at the source code to see for yourself.
 ## Component
 
 [Component](https://github.com/component/component) is a CommonJS-based client-side package manager and build system.
-Not only does it allow you to easily consume 3rd party components, which are packages of JS, CSS, HTML, images, fonts, etc.,
+Not only does it allow you to easily consume 3rd party components (packages of JS, CSS, HTML, images, fonts, etc.),
 it also allows you to organize your app as independent components.
 No more `/scripts`, `/styles`, `/images`, and `/templates` folders where finding what you need is difficult.
 View the [/client](https://github.com/jonathanong/bigpipe-example/tree/master/client) to see how apps _should_ be structured.
