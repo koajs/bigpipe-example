@@ -29,7 +29,8 @@
   "devDependencies": {
     "autoprefixer": "*",
     "component": "*",
-    "nodemon": "*"
+    "nodemon": "*",
+    "jshint": "*"
   },
   "scripts": {
     "postinstall": "make",

@@ -17,4 +17,7 @@ watch:
 start serve:
 	@${BIN}nodemon --harmony .
 
+jshint hint lint:
+	@${BIN}jshint .
+
 .PHONY: client index.js watch start serve

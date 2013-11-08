@@ -1,5 +1,3 @@
-var fs = require('fs')
-var path = require('path')
 var util = require('util')
 var merge = require('merge-descriptors')
 var co = require('co')
@@ -39,6 +37,8 @@ function View(context) {
   this.initialize(context)
 }
 
+View.mixin(require('./components'))
+
 View.prototype.initialize = function (context) {
   Readable.call(this)
 
@@ -55,14 +55,6 @@ View.prototype.initialize = function (context) {
   co.call(this, this.render)(context.onerror)
 }
 
-var head = fs.readFileSync(path.join(__dirname, 'head.html'), 'utf8')
-
-View.prototype.head = function () {
-  this.push('<!DOCTYPE html><html>')
-  this.push(head.replace('{{title}}', this.context.title))
-  this.push('<body>')
-}
-
 View.prototype.tail = function* () {
   this.push('<script src="/example.js"></script>')
 
@@ -76,33 +68,38 @@ View.prototype.tail = function* () {
 
 // Defer executing a script until after the `example.js` is executed.
 View.prototype.defer = function (script) {
-  this.push('<script>defer(function(){' + script + '});</script>')
+  this.push(wrapScript(
+    'defer(function(){' + script + '})'
+  ))
 }
 
 // Replace the contents of `selector` with `html`.
 // Optionally execute the `js`.
 View.prototype.arrive = function (selector, html, js) {
-  this.push('<script>BigPipe('
-    + JSON.stringify(selector) + ', '
-    + JSON.stringify(html)
-    + (js ? ', ' + JSON.stringify(js) : '') + ');'
-    + '</script>'
-  )
+  this.push(wrapScript(
+    'BigPipe(' +
+    JSON.stringify(selector) + ', ' +
+    JSON.stringify(html) +
+    (js ? ', ' + JSON.stringify(js) : '') + ')'
+  ))
 }
 
 // Remove the element from the layout,
 // specifically when it's a placeholder that must be removed.
 View.prototype.remove = function (selector) {
-  this.push('<script>BigPipe.remove('
-    + JSON.stringify(selector)
-    + ');</script>'
-  )
+  this.push(wrapScript(
+    'BigPipe.remove(' + JSON.stringify(selector) + ')'
+  ))
 }
 
-View.prototype.alert = function (type, html) {
-  return '<div class="alert alert-' + type + '">'
-    + html
-    + '</div>'
-}
-
+// There's no underlying source
 View.prototype._read = function noop() {}
+
+// Automatically remove <script> tags so the DOM looks clean.
+function wrapScript(js) {
+  var id = 'id_' + Math.random().toString(36).slice(2)
+
+  return '<script id="' + id + '">'
+    + js
+    + ';remove(\'#' + id +  '\');</script>'
+}

@@ -1,11 +1,16 @@
 <head>
   <title>{{title}}</title>
   <link rel="stylesheet" href="/example.css">
-  <script>
-    var deferred = [];
+  <script id="asdf">
+    window.deferred = [];
     function defer(fn) {
       if (deferred !== null) deferred.push(fn);
       else fn();
     }
+    function remove(el) {
+      if (typeof el === 'string') el = document.querySelector(el);
+      el.parentNode.removeChild(el);
+    }
+    remove('#asdf');
   </script>
 </head>
