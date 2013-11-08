@@ -1,4 +1,4 @@
-# BigPipe Example
+# BigPipe Example [![Build Status](https://travis-ci.org/jonathanong/bigpipe-example.png)](https://travis-ci.org/jonathanong/bigpipe-example)
 
 An app built with [koa](https://github.com/koajs/koa) and [component](https://github.com/component/component) that implements [Facebook's BigPipe](https://www.facebook.com/notes/facebook-engineering/bigpipe-pipelining-web-pages-for-high-performance/389414033919).
 

@@ -30,11 +30,15 @@
     "autoprefixer": "*",
     "component": "*",
     "nodemon": "*",
-    "jshint": "*"
+    "jshint": "*",
+    "mocha": "*",
+    "should": "*",
+    "supertest": "*"
   },
   "scripts": {
     "postinstall": "make",
-    "start": "nodemon --harmony ."
+    "start": "nodemon --harmony .",
+    "test": "NODE_ENV=test make test"
   },
   "engines": {
     "node": ">= 0.11.3"

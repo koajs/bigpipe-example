@@ -20,4 +20,11 @@ start serve:
 jshint hint lint:
 	@${BIN}jshint .
 
-.PHONY: client index.js watch start serve
+test tests:
+	@${BIN}mocha \
+		--require should \
+		--reporter spec \
+		--timeout 30000 \
+		--harmony-generators
+
+.PHONY: client index.js watch start serve test tests
