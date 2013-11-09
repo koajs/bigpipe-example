@@ -13,7 +13,6 @@ body {
 
 #grid {
   position: relative;
-  width: calc(90% - 220px);
   padding: 5px;
   box-shadow: 2px 0px 10px rgba(0,0,0,.15);
 }
@@ -22,6 +21,18 @@ body {
   visibility: hidden;
 }
 
-#sidebar {
-  width: calc(220px + 10%);
+@media (min-width: 721px) {
+  #grid {
+    width: calc(90% - 220px);
+  }
+
+  #sidebar {
+    width: calc(220px + 10%);
+  }
+}
+
+@media (max-width: 720px) {
+  #container {
+    flex-flow: column;
+  }
 }
