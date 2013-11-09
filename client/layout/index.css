@@ -14,11 +14,15 @@ body {
 #grid {
   position: relative;
   padding: 5px;
-  box-shadow: 2px 0px 10px rgba(0,0,0,.15);
+  box-shadow: 2px 2px 10px rgba(0,0,0,.15);
 }
 
 #grid-inner {
   visibility: hidden;
+}
+
+#sidebar {
+  background-color: #f8f8f8;
 }
 
 @media (min-width: 721px) {
