@@ -13,29 +13,15 @@ body {
 
 #grid {
   position: relative;
+  width: calc(90% - 220px);
   padding: 5px;
   box-shadow: 2px 0px 10px rgba(0,0,0,.15);
-  height: auto;
-  min-height: 100%;
 }
 
 #grid-inner {
   visibility: hidden;
 }
 
-@media (min-width: 641px) {
-  #grid {
-    flex-grow: 5;
-  }
-
-  #sidebar {
-    flex-basis: 200px;
-    flex-grow: 1;
-  }
-}
-
-@media (max-width: 640px) {
-  #container {
-    flex-flow: column;
-  }
+#sidebar {
+  width: calc(220px + 10%);
 }
