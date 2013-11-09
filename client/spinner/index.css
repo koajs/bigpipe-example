@@ -1,9 +1,11 @@
 .socket{
-  display: block;
-  position: relative;
-  margin: 200px auto;
   width: 200px;
   height: 200px;
+  position: absolute;
+  left: 50%;
+  margin-left: -100px;
+  top: 50%;
+  margin-top: -100px;
 }
 
 .hex-brick{
