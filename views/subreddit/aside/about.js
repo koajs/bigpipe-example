@@ -1,3 +1,5 @@
+var humanize = require('humanize-number')
+
 exports.asideAbout = function* () {
   var id = 'about'
 
@@ -32,6 +34,6 @@ exports._asideAbout = function (data) {
     + data.title + '</a></h3>'
     + '<dl>'
     + '<dt>Subscribers</dt>'
-    + '<dd>' + data.subscribers + '</dd>'
+    + '<dd>' + humanize(data.subscribers || 0) + '</dd>'
     + '</dl>'
 }

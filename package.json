@@ -24,7 +24,8 @@
     "koa-favicon": "koajs/favicon",
     "koa-logger": "koajs/logger",
     "koa-compress": "koajs/compress",
-    "merge-descriptors": "*"
+    "merge-descriptors": "*",
+    "humanize-number": "*"
   },
   "devDependencies": {
     "autoprefixer": "*",
