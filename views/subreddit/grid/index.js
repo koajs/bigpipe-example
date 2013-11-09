@@ -4,14 +4,12 @@ var path = require('path')
 // pagelet assets
 var pagelet = {
   css: '<style scoped>' + fs.readFileSync(path.join(__dirname, 'pagelet.css'), 'utf8') + '</style>',
-  js: fs.readFileSync(path.join(__dirname, 'pagelet.js'), 'utf8'),
-  spinner: fs.readFileSync(path.join(__dirname, 'spinner.html'), 'utf8')
+  js: fs.readFileSync(path.join(__dirname, 'pagelet.js'), 'utf8')
 }
 
 exports.grid = function* () {
   if (this.context.strategy === 'bigpipe') {
-    // Push the spinner first as a "loading" indicator
-    this.push('<div id="grid">' + pagelet.spinner + '</div>')
+    this.push('<div id="grid"></div>')
 
     this.pagelets.push(function* () {
       var images = yield this.images
