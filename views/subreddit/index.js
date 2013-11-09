@@ -13,18 +13,18 @@ View.prototype.render = function* () {
   // flushing the <head> to the client so the client
   // can at least download the <style> while s/he waits.
   if (this.context.strategy === 'parallel')
-    yield this.query
+    yield* this.query()
 
-  yield this.body
+  yield* this.body()
 
-  yield this.tail
+  yield* this.tail()
 }
 
 View.prototype.body = function* () {
   this.push('<div id="search"></div>')
   this.push('<div id="container">')
 
-  yield this.grid
+  yield* this.grid()
 
   this.push('<div id="sidebar">')
 

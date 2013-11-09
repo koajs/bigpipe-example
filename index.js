@@ -6,7 +6,7 @@ require('./routes/home')
 require('./routes/search')
 require('./routes/subreddit')
 
-// static middleware goes last!
+// should move this to the beginning
 app.use(require('koa-static')(path.join(__dirname, 'build')))
 
 if (!module.parent) {

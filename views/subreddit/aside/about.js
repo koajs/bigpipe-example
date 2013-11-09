@@ -6,7 +6,7 @@ exports.asideAbout = function* () {
   if (this.context.strategy === 'bigpipe') {
     this.push('<aside id="' + id + '" class="placeholder"></aside>')
     this.pagelets.push(function* () {
-      var about = yield this.about
+      var about = yield* this.about()
       if (!about)
         return this.remove('#' + id)
 
@@ -17,7 +17,7 @@ exports.asideAbout = function* () {
 
   var about = this.locals
     ? this.locals.about
-    : yield this.about
+    : yield* this.about()
 
   if (!about)
     return

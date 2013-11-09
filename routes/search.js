@@ -4,7 +4,7 @@ var get = require('../lib').get
 // We proxy the searches from reddit to avoid CORS issues.
 app.use(function* (next) {
   if (this.path !== '/search')
-    return yield next
+    return yield* next
 
   if (!('q' in this.query))
     return this.redirect('/taylorswift')
@@ -13,7 +13,7 @@ app.use(function* (next) {
   if (!term)
     this.error(400, 'search term required')
 
-  this.body = yield search(term)
+  this.body = yield* search(term)
 })
 
 function* search(term) {

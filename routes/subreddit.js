@@ -4,7 +4,7 @@ var View = require('../views').subreddit
 app.use(function* (next) {
   var match = /^\/(\w+)$/.exec(this.path)
   if (!match)
-    return yield next
+    return yield* next
 
   this.subreddit = match[1]
   this.title = '/r/' + this.subreddit

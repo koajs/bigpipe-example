@@ -4,7 +4,7 @@ exports.asideTop = function* (time) {
   if (this.context.strategy === 'bigpipe') {
     this.push('<aside id="' + id + '" class="placeholder"></aside>')
     this.pagelets.push(function* () {
-      var posts = yield this.top(time)
+      var posts = yield* this.top(time)
       if (!posts || !posts.length)
         return this.remove('#' + id)
 
@@ -16,7 +16,7 @@ exports.asideTop = function* (time) {
 
   var posts = this.locals
     ? this.locals[time]
-    : yield this.top(time)
+    : yield* this.top(time)
 
   if (!posts || !posts.length)
     return

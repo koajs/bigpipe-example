@@ -12,7 +12,7 @@ exports.grid = function* () {
     this.push('<div id="grid"></div>')
 
     this.pagelets.push(function* () {
-      var images = yield this.images
+      var images = yield* this.images()
       if (!images || !images.length)
         return this.arrive('#grid', this.alert('info', '<p>No images to view.</p>'))
 
@@ -26,7 +26,7 @@ exports.grid = function* () {
 
   var images = this.locals
     ? this.locals.images
-    : yield this.images
+    : yield* this.images()
 
   if (!images || !images.length)
     return this.push('<div id="grid">'
