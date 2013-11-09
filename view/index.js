@@ -26,9 +26,9 @@ View.extend = function () {
 
 // Merge in an object into the View's prototype.
 // Makes it easier to define properties.
-// ie View.mixin(require('./stuff'))
+// ie View.context(require('./stuff'))
 // where stuff is defined like `exports.thing = function () {}`
-View.mixin = function (obj) {
+View.context = function (obj) {
   merge(this.prototype, obj)
   return this
 }
@@ -37,7 +37,7 @@ function View(context) {
   this.initialize(context)
 }
 
-View.mixin(require('./components'))
+View.context(require('./components'))
 
 View.prototype.initialize = function (context) {
   Readable.call(this)

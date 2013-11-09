@@ -1,10 +1,10 @@
 var View = module.exports = require('../../view').extend()
 
-View.mixin(require('./aside'))
-View.mixin(require('./aside/about'))
-View.mixin(require('./aside/top'))
-View.mixin(require('./grid'))
-View.mixin(require('./query'))
+View.context(require('./aside'))
+View.context(require('./aside/about'))
+View.context(require('./aside/top'))
+View.context(require('./grid'))
+View.context(require('./query'))
 
 View.prototype.render = function* () {
   this.head()
