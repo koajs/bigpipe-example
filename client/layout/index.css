@@ -35,4 +35,8 @@ body {
   #container {
     flex-flow: column;
   }
+
+  #grid {
+    min-height: 280px;
+  }
 }
