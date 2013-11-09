@@ -4,8 +4,8 @@
   <script id="asdf">
     window.deferred = [];
     function defer(fn) {
-      if (deferred !== null) deferred.push(fn);
-      else fn();
+      if (deferred === null) fn();
+      else deferred.push(fn);
     }
     function remove(el) {
       if (typeof el === 'string') el = document.querySelector(el);
