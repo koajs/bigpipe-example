@@ -24,6 +24,7 @@
     "koa-favicon": "koajs/favicon",
     "koa-logger": "koajs/logger",
     "koa-compress": "koajs/compress",
+    "get-json-plz": "*",
     "merge-descriptors": "*",
     "humanize-number": "*"
   },

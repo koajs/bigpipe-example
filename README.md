@@ -87,7 +87,6 @@ View the [/client](https://github.com/jonathanong/bigpipe-example/tree/master/cl
 ## Architecture
 
 - [client/](https://github.com/jonathanong/bigpipe-example/tree/master/client) - all client-side CSS and JS that is not within a `View`.
-- [lib/](https://github.com/jonathanong/bigpipe-example/tree/master/lib) - utilities used by the rest of the app.
 - [routes/](https://github.com/jonathanong/bigpipe-example/tree/master/routes) - all routes.
 - [view/](https://github.com/jonathanong/bigpipe-example/tree/master/view) - base constructor which all `View`s inherit from.
 - [views/](https://github.com/jonathanong/bigpipe-example/tree/master/views) - all the different views.

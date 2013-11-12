@@ -1,5 +1,6 @@
+var get = require('get-json-plz')
+
 var app = require('../app')
-var get = require('../lib').get
 
 // We proxy the searches from reddit to avoid CORS issues.
 app.use(function* (next) {

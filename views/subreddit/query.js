@@ -1,4 +1,4 @@
-var get = require('../../lib').get
+var get = require('get-json-plz')
 
 exports.images = function* () {
   var json = yield get('http://imgur.com/r/'
