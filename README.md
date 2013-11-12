@@ -31,13 +31,6 @@ npm install
 npm start
 ```
 
-However, you can get this working on node 0.8 and 0.10 with [gnode](https://github.com/TooTallNate/gnode):
-
-```bash
-npm install -g gnode
-gnode nodemon .
-```
-
 ## Strategies
 
 This example implements 3 strategies.
