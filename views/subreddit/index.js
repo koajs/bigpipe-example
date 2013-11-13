@@ -46,23 +46,13 @@ View.prototype.body = function* () {
 // know what queries to execute _before_ you render the template.
 // Future: this.locals = yield {}
 View.prototype.query = function* () {
-  var out = yield [
-    this.images,
-    this.about,
-    this.top('day'),
-    this.top('week'),
-    this.top('month'),
-    this.top('year'),
-    this.top('all'),
-  ]
-
-  this.locals = {
-    images: out[0],
-    about: out[1],
-    day: out[2],
-    week: out[3],
-    month: out[4],
-    year: out[5],
-    all: out[6]
+  this.locals = yield {
+    images: this.images,
+    about: this.about,
+    day: this.top('day'),
+    week: this.top('week'),
+    month: this.top('month'),
+    year: this.top('year'),
+    all: this.top('all')
   }
 }
