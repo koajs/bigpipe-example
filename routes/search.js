@@ -20,7 +20,9 @@ app.use(function* (next) {
 function* search(term) {
   var json = yield get('http://www.reddit.com/subreddits/search.json?limit=10&q=' + term)
 
-  return json && json.data.children.map(getData)
+  return json
+    ? json.data.children.map(getData)
+    : []
 }
 
 function getData(x) {
