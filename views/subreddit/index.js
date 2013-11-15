@@ -28,13 +28,13 @@ View.prototype.body = function* () {
 
   this.push('<div id="sidebar">')
 
-  yield this.aside('about')
-  yield this.aside('strategies')
-  yield this.aside('top', 'day')
-  yield this.aside('top', 'week')
-  yield this.aside('top', 'month')
-  yield this.aside('top', 'year')
-  yield this.aside('top', 'all')
+  yield* this.aside('about')
+  yield* this.aside('strategies')
+  yield* this.aside('top', 'day')
+  yield* this.aside('top', 'week')
+  yield* this.aside('top', 'month')
+  yield* this.aside('top', 'year')
+  yield* this.aside('top', 'all')
 
   this.push('</div>')
 
@@ -44,7 +44,6 @@ View.prototype.body = function* () {
 // Execute all queries in parallel.
 // This is inconvenient because it requires you to
 // know what queries to execute _before_ you render the template.
-// Future: this.locals = yield {}
 View.prototype.query = function* () {
   this.locals = yield {
     images: this.images,

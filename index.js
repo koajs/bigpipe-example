@@ -1,13 +1,11 @@
-var path = require('path')
-
 var app = module.exports = require('./app')
 
 require('./routes/home')
 require('./routes/search')
 require('./routes/subreddit')
 
-// should move this to the beginning
-app.use(require('koa-static')(path.join(__dirname, 'build')))
+// remove this later
+app.use(function* (next) {})
 
 if (!module.parent) {
   var port = process.env.PORT || 3456
