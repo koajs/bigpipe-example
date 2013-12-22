@@ -18,12 +18,12 @@
     "url": "https://github.com/jonathanong/bigpipe-example/issues"
   },
   "dependencies": {
-    "co": "2",
-    "koa": "koajs/koa",
-    "koa-static": "koajs/static",
-    "koa-favicon": "koajs/favicon",
-    "koa-logger": "koajs/logger",
-    "koa-compress": "koajs/compress",
+    "co": "^3.0.1",
+    "koa": ">= 0.1.2",
+    "koa-static": "*",
+    "koa-favicon": "*",
+    "koa-logger": "*",
+    "koa-compress": "*",
     "get-json-plz": "*",
     "merge-descriptors": "*",
     "humanize-number": "*"

@@ -12,7 +12,7 @@ app.use(function* (next) {
 
   var term = this.query.q
   if (!term)
-    this.error(400, 'search term required')
+    this.throw(400, 'search term required')
 
   this.body = yield* search(term)
 })

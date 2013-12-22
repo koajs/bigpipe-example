@@ -52,7 +52,7 @@ View.prototype.initialize = function (context) {
   // We have to call `co` here because
   // the context here is different.
   // We also want it to execute as a distinct coroutine.
-  co.call(this, this.render)(context.onerror)
+  co(this.render).call(this, context.onerror)
 }
 
 View.prototype.tail = function* () {
