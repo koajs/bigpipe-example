@@ -75,33 +75,13 @@ View.prototype.defer = function (script) {
 
 // Replace the contents of `selector` with `html`.
 // Optionally execute the `js`.
-// to do: refactor with koa-spdy
 View.prototype.arrive = function (selector, html, js) {
-  var js = 'BigPipe(' +
+  this.push(wrapScript(
+    'BigPipe(' +
     JSON.stringify(selector) + ', ' +
     JSON.stringify(html) +
     (js ? ', ' + JSON.stringify(js) : '') + ')'
-  var res = this.context.res
-
-  if (res.isSpdy) {
-    var onerror = this.context.onerror
-    var id = '/' + Math.random().toString(36).slice(2) + '.js'
-    this.push('<script src="' + id + '" async></script>')
-    res.push(id, {
-      'content-type': 'application/javascript',
-      'content-length': Buffer.byteLength(js),
-      'cache-control': 'public, max-age=999999999999',
-      'etag': "mr. 304"
-    }, function (err, stream) {
-      if (err)
-        return onerror(err)
-
-      stream.on('error', onerror)
-      stream.end(js)
-    })
-  } else {
-    this.push(wrapScript(js))
-  }
+  ))
 }
 
 // Remove the element from the layout,

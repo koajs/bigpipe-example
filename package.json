@@ -26,8 +26,7 @@
     "koa-compress": "*",
     "get-json-plz": "*",
     "merge-descriptors": "*",
-    "humanize-number": "*",
-    "spdy": "*"
+    "humanize-number": "*"
   },
   "devDependencies": {
     "autoprefixer": "*",
