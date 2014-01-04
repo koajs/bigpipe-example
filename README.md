@@ -60,6 +60,8 @@ All asynchronous functions are executed after the initial layout is flushed to t
 Each asynchronous function, also called a pagelet, is rendered and pushed independently to the client.
 Each pagelet is generally self-contained, meaning it has its own HTML, JS, CSS.
 
+This example also progressively enhances to use SPDY push, resulting in cleaner HTML outputs.
+
 The major downside to BigPipe is that it requires Javascript on the client and HTTP caching is pretty much impossible.
 BigPipe should be used only for dynamic content.
 
