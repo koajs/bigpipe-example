@@ -1,6 +1,7 @@
 {
   "name": "bigpipe-example",
   "version": "0.0.1",
+  "private": true,
   "local": ["boot"],
   "paths": ["client"]
 }
