@@ -18,7 +18,7 @@
     "url": "https://github.com/jonathanong/bigpipe-example/issues"
   },
   "dependencies": {
-    "co": "^3.0.1",
+    "co": "^4.6.0",
     "koa": ">= 0.1.2",
     "koa-static": "*",
     "koa-favicon": "*",
