@@ -20,7 +20,7 @@
   "dependencies": {
     "co": "^3.0.1",
     "koa": ">= 0.1.2",
-    "koa-static": "*",
+    "koa-static": "2.0.0",
     "koa-favicon": "*",
     "koa-logger": "*",
     "koa-compress": "*",
