@@ -29,7 +29,7 @@
     "humanize-number": "*"
   },
   "devDependencies": {
-    "autoprefixer": "*",
+    "autoprefixer": "6.3.0",
     "component": "*",
     "nodemon": "*",
     "jshint": "*",
