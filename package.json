@@ -34,7 +34,7 @@
     "nodemon": "*",
     "jshint": "*",
     "mocha": "*",
-    "should": "*",
+    "should": "8.2.0",
     "supertest": "*"
   },
   "scripts": {
